@@ -74,6 +74,7 @@ export type EventBase = {
    * Webhook Event ID. An ID that uniquely identifies a webhook event. This is a string in ULID format.
    */
   webhookEventId: string;
+  deliveryContext: DeliveryContext;
   /**
    * Time of the event in milliseconds
    */
@@ -82,6 +83,16 @@ export type EventBase = {
    * Source user, group, or room object with information about the source of the event.
    */
   source: EventSource;
+};
+
+/**
+ * Webhook's delivery context information
+ */
+export type DeliveryContext = {
+  /**
+   * Whether the webhook event is a redelivered one or not.
+   */
+  isRedelivery: boolean;
 };
 
 export type EventSource = User | Group | Room;

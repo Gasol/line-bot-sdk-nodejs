@@ -17,6 +17,9 @@ const getRecentReq = (): { body: Types.WebhookRequestBody } =>
 describe("middleware", () => {
   const webhook: Types.MessageEvent = {
     webhookEventId: "test_webhook_event_id",
+    deliveryContext: {
+      isRedelivery: false,
+    },
     message: {
       id: "test_event_message_id",
       text: "this is test message.😄😅😢😞😄😅😢😞",
@@ -32,7 +35,7 @@ describe("middleware", () => {
     type: "message",
   };
   const webhookSignature = {
-    "X-Line-Signature": "LT+azCbVW/rzbe7I0DaNcH1ha+fxE8F7wS0wTW8IypQ=",
+    "X-Line-Signature": "YP3E465fSLAeoEug7ksWY/VE32CeGdlXdTHT9BmzKTk=",
   };
 
   const http = (headers: any = { ...webhookSignature }) =>
