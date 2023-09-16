@@ -71,6 +71,10 @@ export type EventBase = {
    */
   mode: "active" | "standby";
   /**
+   * Webhook Event ID. An ID that uniquely identifies a webhook event. This is a string in ULID format.
+   */
+  webhookEventId: string;
+  /**
    * Time of the event in milliseconds
    */
   timestamp: number;
